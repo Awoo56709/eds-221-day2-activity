@@ -62,7 +62,8 @@ class("species")
 
 Find the maximum value of the count() column, store as max_count
 ```{r}
-max_count <- max("count")
+max_count <- max(df_1$count)
+max_count
 ```
 
 
