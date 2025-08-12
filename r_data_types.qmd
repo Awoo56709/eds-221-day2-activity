@@ -1,0 +1,82 @@
+---
+title: "r-data-types"
+format: html
+editor: visual
+---
+
+```{r}
+vec_1 <- c(2,5,9,10,8,12,1,0)
+
+class(vec_1)
+```
+```{r}
+typeof(vec_1)
+```
+
+```{r}
+vec_1_e3 <- vec_1[3]
+vec_1_e3
+```
+```{r}
+vec_1_e1 <- vec_1[1]
+vec_1_e1
+```
+
+```{r}
+vec_1_e5to7 <- vec_1[5:7]
+vec_1_e5to7
+```
+```{r}
+vec_1_char <- as.character(vec_1)
+vec_1_char
+```
+```{r}
+vec_2 <- c(town = "Santa Barbara", location = "Rincon", swell = "South")
+vec_2
+```
+```{r}
+vec_2_e2 <- vec_2["location"]
+vec_2_e2
+```
+
+# 3
+#Write code to create a data frame called df_1 that looks like this:
+
+```{r}
+df_1 <- data.frame(
+  region = c("A", "B", "A", "D"),
+  species = c("otter", "great white", "sea lion", "gray whale"),
+  count = c(12,2,36,6)
+)
+df_1
+```
+Return the class of the entire data frame
+```{r}
+
+class(df_1)
+```
+Return the class of the species column
+```{r}
+class("species")
+```
+
+Find the maximum value of the count() column, store as max_count
+```{r}
+max_count <- max("count")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
