@@ -10,7 +10,7 @@ warnings: FALSE
 library(tidyverse)
 library(janitor)
 library(dplyr)
-mack_verts <- read_csv(here("data","AS00601.csv"))
+mack_verts <- read_csv(here::here ("data","AS00601.csv"))
 
 mack_verts
 ```
@@ -62,7 +62,6 @@ ggplot(data = mc_salamaders, aes( x = length1, y = weight)) + geom_jitter() +
        title = "Weight and Length Correlation",
        subtitle = "Slamander Weight vs Legth",
        caption = "Source is Salamander Dataset") + theme_dark()
-  )
   
   
 ```
@@ -104,7 +103,7 @@ Update graph axis labels and title
 Export your graph as cutthroat_size.png to the figs folder
 
 ```{r}
-#ggsave(plot = cutthroat_plot, here::here("figs", "cutthroat_plot.png"))
+ggsave(plot = cutthroat_plot, here::here("figs", "cutthroat_plot.png"))
 ```
 
 
