@@ -54,12 +54,58 @@ mc_salamaders
 
 ```{r}
 
-ggplot(data = mc_salamaders, aes( x = length1, y = weight)) + geom_jitter() +
+ggplot(data = mc_salamaders, aes( x = length1, y = weight)) + geom_jitter() + 
+  geom_point(
+    colour = 'red', size = 1) + 
+  labs(x = "Salamander Weigth", 
+       y = "Salamander Length",
+       title = "Weight and Length Correlation",
+       subtitle = "Slamander Weight vs Legth",
+       caption = "Source is Salamander Dataset") + theme_dark()
+  )
   
   
 ```
 
+#making a cutthroat plot
 
+Similar to above, make a subset called mc_trout that only contains observations for cutthroat trout (species “ONCL”)
+
+```{r}
+mc_trout <- mack_verts |>
+  filter(species == "ONCL")
+mc_trout
+```
+
+Create a scatterplot of length1 by weight for all trout in the dataset
+#CHECKING REACH
+```{r}
+unique(mc_trout$reach)
+```
+
+
+```{r}
+
+custom_colors <- c("L" = "red", "U"= "blue", "M"= "forestgreen")
+
+cutthroat_plot <-
+ggplot(data = mc_trout, aes(x = length1, y = weight)) + 
+  geom_point(aes(color = reach)) +
+  scale_color_manual(values = custom_colors) + #assign custom colors
+  facet_wrap(~reach) +
+  theme_minimal()
+cutthroat_plot
+```
+
+Customize so that the point color depends on reach
+Customize your color scheme (e.g. scale_color_manual())
+Facet your plot by creek reach (hint: facet_wrap(~...))
+Update graph axis labels and title
+Export your graph as cutthroat_size.png to the figs folder
+
+```{r}
+ggsave(plot = cutthroat_plot, here::here("figs", "cutthroat_plot.png"))
+```
 
 
 
